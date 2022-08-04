@@ -1,77 +1,70 @@
-@extends('layouts.app')
+@extends('layouts.admin.master')
+ @section('text')
+        <form class="login100-form validate-form" method="POST" action="{{ route('register') }}">
+            @csrf
+            <center>
+                <img src="{{asset ('admin/images/logo.png')}}">
+            </center>
+            <span class="login100-form-title p-b-34 p-t-15">
+                Register
+            </span>
 
-@section('content')
-<div class="container">
-    <div class="row justify-content-center">
-        <div class="col-md-8">
-            <div class="card">
-                <div class="card-header">{{ __('Register') }}</div>
-
-                <div class="card-body">
-                    <form method="POST" action="{{ route('register') }}">
-                        @csrf
-
-                        <div class="row mb-3">
-                            <label for="name" class="col-md-4 col-form-label text-md-end">{{ __('Name') }}</label>
-
-                            <div class="col-md-6">
-                                <input id="name" type="text" class="form-control @error('name') is-invalid @enderror" name="name" value="{{ old('name') }}" required autocomplete="name" autofocus>
-
-                                @error('name')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                @enderror
-                            </div>
-                        </div>
-
-                        <div class="row mb-3">
-                            <label for="email" class="col-md-4 col-form-label text-md-end">{{ __('Email Address') }}</label>
-
-                            <div class="col-md-6">
-                                <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email">
-
-                                @error('email')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                @enderror
-                            </div>
-                        </div>
-
-                        <div class="row mb-3">
-                            <label for="password" class="col-md-4 col-form-label text-md-end">{{ __('Password') }}</label>
-
-                            <div class="col-md-6">
-                                <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="new-password">
-
-                                @error('password')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                @enderror
-                            </div>
-                        </div>
-
-                        <div class="row mb-3">
-                            <label for="password-confirm" class="col-md-4 col-form-label text-md-end">{{ __('Confirm Password') }}</label>
-
-                            <div class="col-md-6">
-                                <input id="password-confirm" type="password" class="form-control" name="password_confirmation" required autocomplete="new-password">
-                            </div>
-                        </div>
-
-                        <div class="row mb-0">
-                            <div class="col-md-6 offset-md-4">
-                                <button type="submit" class="btn btn-primary">
-                                    {{ __('Register') }}
-                                </button>
-                            </div>
-                        </div>
-                    </form>
-                </div>
+            <div class="wrap-input100 validate-input" data-validate = "Enter name">
+                <input class="input100" type="text" name="name" placeholder="Name">
+                <span class="focus-input100" data-placeholder="&#xf207;"></span>
             </div>
-        </div>
-    </div>
-</div>
-@endsection
+
+            <div class="wrap-input100 validate-input" data-validate = "Enter address">
+                <input class="input100" type="text" name="address" placeholder="Address">
+                <span class="focus-input100" data-placeholder="&#xf2c6;"></span>
+            </div>
+
+            <div class="wrap-input100 validate-input" data-validate = "Enter email">
+                <input class="input100" type="email" name="email" placeholder="Email">
+                <span class="focus-input100" data-placeholder="&#xf2da;"></span>
+            </div>
+
+            <div class="wrap-input100 validate-input" data-validate = "Enter phone">
+                <input class="input100" type="text" name="phone" placeholder="Phone">
+                <span class="focus-input100" data-placeholder="&#xf2d7;"></span>
+            </div>
+
+            <div class="wrap-input100 validate-input" data-validate = "Enter username">
+                <input class="input100" type="text" name="username" placeholder="Username">
+                <span class="focus-input100" data-placeholder="&#xf207;"></span>
+            </div>
+
+            <div class="wrap-input100 validate-input" data-validate="Enter password">
+                <input class="input100" type="password" name="password" placeholder="Password">
+                <span class="focus-input100" data-placeholder="&#xf191;"></span>
+            </div>
+
+            <div class="wrap-input100 validate-input" data-validate="Enter password confimation">
+                <input class="input100" type="password" name="password_confimation" placeholder="Confim Password">
+                <span class="focus-input100" data-placeholder="&#xf191;"></span>
+            </div>
+            <div class="container-login100-form-btn">
+                <button class="login100-form-btn">
+                    Register
+                </button>
+            </div>
+
+            <div class="text-center p-t-10">
+                <a class="txt1" href="{{ url('/') }}">
+                    go to home
+                </a>
+            </div>
+
+            <div class="text-center p-t-10">
+                <a class="txt1" href="{{ route('login') }}">
+                    go to login
+                </a>
+            </div>
+
+            <div class="text-center p-t-10">
+                <a class="txt1" href="{{ route('password.request') }}">
+                    Forgot Password?
+                </a>
+            </div>
+        </form>
+        @endsection
