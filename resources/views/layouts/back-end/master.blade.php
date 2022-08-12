@@ -53,7 +53,7 @@
 
             <aside id="layout-menu" class="layout-menu menu-vertical menu bg-menu-theme">
                 <div class="app-brand demo">
-                    <a href="{{ route('home') }}" class="app-brand-link">
+                    <a href="index.html" class="app-brand-link">
                         <span class="app-brand-logo demo">
                         <img src="{{ asset('back-end/assets/img/logoicon.png') }}" alt="">
                         </span>
@@ -70,7 +70,37 @@
 
                 <div class="menu-inner-shadow"></div>
 
-              
+                <ul class="menu-inner py-1">
+                    <!-- Dashboard -->
+                    <li class="menu-item active">
+                        <a href="{{route('admin') }}" class="menu-link">
+                            <i class="menu-icon tf-icons bx bx-home-circle"></i>
+                            <div data-i18n="Analytics">Dashboard</div>
+                        </a>
+                    </li>  
+                    
+                    <li class="menu-item">
+                        <a href="{{ route('user.index')}}" class="menu-link">
+                            <i class="menu-icon tf-icons bx bx-user-circle"></i>
+                            <div data-i18n="Analytics">User</div>
+                        </a>
+                    </li>  
+
+                    <li class="menu-item">
+                        <a href="{{ route('category.index')}}" class="menu-link">
+                            <i class="menu-icon tf-icons bx bx-grid-alt"></i>
+                            <div data-i18n="Analytics">Category</div>
+                        </a>
+                    </li>  
+
+                    <li class="menu-item">
+                        <a href="{{route('product.index')}}" class="menu-link">
+                            <i class="menu-icon tf-icons bx bx-cart-alt"></i>
+                            <div data-i18n="Analytics">Product</div>
+                        </a>
+                    </li>  
+
+                </ul>
                 
             </aside>
             <!-- / Menu -->
@@ -154,33 +184,7 @@
                     <!-- Content -->
 
                     <div class="container-xxl flex-grow-1 container-p-y">
-                       
-                        <div class="col-md-6 col-lg-4 mb-6 mx-auto">
-                            <div class="card h-50">
-                                <img class="card-img" src="{{ asset('back-end/assets/img/avatars/user.jpg') }}" alt="" />
-                                <div class="card-body">
-                                    <h3 class="card-title">My Profile</h3>
-                                    <p class="card-text">
-                                        Name : John
-                                    </p>
-
-                                    <p class="card-text">
-                                        Address : จ.นนทบุรี
-                                    </p>
-
-                                    <p class="card-text">
-                                        Email : John@gmail.com
-                                    </p>
-
-                                    <p class="card-text">
-                                        Phone : 098-888-8888
-                                    </p>
-                                    <a href="edit_profile.html" class="btn btn-outline-success">Home</a>
-
-                                    <a href="{{ route('admin')}}" class="btn btn-outline-primary">Product Mangment</a>
-                                </div>
-                            </div>
-                        </div>
+                        @yield('content')
                             
                          
                             
