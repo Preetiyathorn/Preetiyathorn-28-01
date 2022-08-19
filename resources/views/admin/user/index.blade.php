@@ -12,23 +12,27 @@
                 <th>Address</th>
                 <th>Email</th>
                 <th>Phone</th>
-                <th>Status</th>
+                <th>Created_at</th>
+                <th>Updateted_at</th>
                 <th>Actions</th>
               </tr>
             </thead>
             <tbody class="table-border-bottom-0">
-              <tr>
-              <td>1</td>
-              <td>admin</td>
-              <td>จ.นนทบุรี</td>
-              <td>admin@gmail.com</td>
-              <td>098-888-8888</td>
-              <td>admin</td>
+             @foreach ($user as $users)
+             <tr>
+              <td>{{ $users->id }}</td>
+              <td>{{ $users->name }}</td>
+              <td>{{ $users->address }}</td>
+              <td>{{ $users->email }}</td>
+              <td>{{ $users->phonne }}</td>
+              <td>{{ $users->created_at }}</td>
+              <td>{{ $users->updated_at }}</td>
               <td>
-                <a href="#"><i class='bx bxs-edit'></i></a>
-                <a href="#"><i class='bx bx-trash'></i></a>
+                <a href="{{ route('user.edit',$users->id) }}"><i class='bx bxs-edit'></i></a>
+                <a href="{{ route('usser.delete',$user->id) }}"><i class='bx bx-trash'></i></a>
               </td>
               </tr>
+             @endforeach
             </tbody>
           </table>
         </div>

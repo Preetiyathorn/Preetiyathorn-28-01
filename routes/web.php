@@ -31,6 +31,9 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 Route::get('/admin/index',[HomeController::class, 'admin'])->name('admin');
 //User
 Route::get('/admin/user/index',[UserController::class,'index'])->name('user.index');
+Route::get('/admin/user/edit/{id}',[UserController::class,'edit'])->name('user.edit');
+Route::post('/admin/user/upddate/{id}',[UserController::class,'update'])->name('user.update');
+Route::get('/admin/user/delete/{id}',[UserController::class,'delete'])->name('user.delete');
 //category
 Route::get('/admin/category/index',[CategoryController::class, 'index'])->name('category.index');
 Route::get('/admin/category/create',[CategoryController::class, 'createform'])->name('category.create');
